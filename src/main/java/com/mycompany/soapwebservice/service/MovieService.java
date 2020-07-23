@@ -14,6 +14,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.xml.ws.soap.MTOM;
 
 /**
  *
@@ -21,6 +22,7 @@ import javax.persistence.Persistence;
  */
 
 @WebService
+@MTOM(enabled=true, threshold=3000)
 public class MovieService {
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("Images_PU");
     MoviesJpaController moviesRepo = new MoviesJpaController(emf);
